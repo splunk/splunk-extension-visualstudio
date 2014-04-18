@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+      <Title>Connect to Splunk server</Title>
+      <Author>Splunk, Inc.</Author>
+      <Description>Connect to a Splunk server and run a task with that connection.</Description>
+      <HelpUrl>http://dev.splunk.com</HelpUrl>
+      <Shortcut>splconnect</Shortcut>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>Splunk</Assembly>
+        </Reference>
+      </References>
+      <Declarations>
+        <Object Editable="true">
+          <ID>scheme</ID>
+          <ToolTip>Specify encrypted (Scheme.Https) or unencrypted (Scheme.Http) connection</ToolTip>
+          <Default>Scheme.Https</Default>
+          <Function>
+          </Function>
+          <Type>Scheme</Type>
+        </Object>
+        <Literal Editable="true">
+          <ID>host</ID>
+          <ToolTip>Host where splunkd is running</ToolTip>
+          <Default>localhost</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>port</ID>
+          <ToolTip>Port splunkd listens on</ToolTip>
+          <Default>8089</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[using (var service = new Service($scheme$, "$host$", $port$, new Namespace()))
+{
+    $selected$$end$
+}
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
