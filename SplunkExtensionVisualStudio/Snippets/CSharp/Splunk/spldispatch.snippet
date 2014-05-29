@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>Get a job from a saved search</Title>
+      <Author>
+      </Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>savedSearchName</ID>
+          <ToolTip>Named of the saved search to get a job from</ToolTip>
+          <Default>savedSearchName</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[ SavedSearch savedSearch = await service.GetSavedSearchAsync("$savedSearchName$");
+ 
+Job savedSearchJob = null;
+JobCollection savedSearchJobHistory = await savedSearch.GetHistoryAsync();
+
+if (savedSearchJobHistory.Count > 0)
+{
+    // Jobs have already been run for this saved search. Fetch the last one.
+    savedSearchJob = savedSearchJobHistory.Last();
+}
+else
+{
+    // No jobs exist. Dispatch a new one.
+    SavedSearchDispatchArgs args = new SavedSearchDispatchArgs
+    {
+        // Set arguments for the dispatch methods. See
+        //
+        //    http://docs.splunk.com/DocumentationStatic/JavaSDK/1.1/com/splunk/SavedSearchDispatchArgs.html
+        //
+        // for a list of all the setters.
+                   
+        $end$// DispatchEarliestTime = "-20m@m",
+        // DispatchLatestTime = "now"
+    };
+
+    savedSearchJob = await savedSearch.DispatchAsync(args);
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

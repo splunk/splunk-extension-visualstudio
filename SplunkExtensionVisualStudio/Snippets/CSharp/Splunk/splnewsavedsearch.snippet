@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>Create a saved search</Title>
+      <Author>
+      </Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>savedSearchName</ID>
+          <ToolTip>Entity name for this saved search</ToolTip>
+          <Default>savedSearchName</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>searchQuery</ID>
+          <ToolTip>Search query to use</ToolTip>
+          <Default>search index=_internal | head 10</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[SavedSearch savedSearch = await service.CreateSavedSearchAsync(
+    name: "$savedSearchName$",
+    search: "$searchQuery$",
+    attributes: new SavedSearchAttributes
+        {
+            // For a full list of options, see:
+            //
+            //     http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTsearch#POST_saved.2Fsearches
+
+            $end$// Description = "Human readable description of this saved search.",
+            // IsScheduled = true,
+            // CronSchedule = "*/5 * * * *"
+        }
+);]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

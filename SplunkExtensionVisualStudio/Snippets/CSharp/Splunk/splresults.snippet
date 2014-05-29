@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>Iterate over search results</Title>
+      <Author>
+      </Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Object Editable="true">
+          <ID>job</ID>
+          <ToolTip>Job to iterate over search results for</ToolTip>
+          <Default>job</Default>
+          <Function>
+          </Function>
+          <Type>Job</Type>
+        </Object>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[long totalResults = $job$.ResultCount;
+const long eventsPerPage = 5000;
+
+for (long offset = 0; offset < totalResults; offset++)
+{
+    using (SearchResultStream searchResults = await $job$.GetSearchResultsAsync(
+        new SearchResultsArgs { Offset = (int)offset,  Count = (int)eventsPerPage }))
+    {
+        foreach (SearchResult result in searchResults)
+        {
+            $end$
+        }
+    }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

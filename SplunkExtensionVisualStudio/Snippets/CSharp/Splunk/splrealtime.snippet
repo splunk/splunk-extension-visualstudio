@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>Run a realtime search</Title>
+      <Author>
+      </Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>searchQuery</ID>
+          <ToolTip>Search to run</ToolTip>
+          <Default>search index=_internal | stats count by method</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[using (CancellationTokenSource tokenSource = new CancellationTokenSource())
+using (Job job = await service.CreateJobAsync(
+    "$searchQuery$",
+    new JobArgs {
+        EarliestTime = "rt-1h",
+        LatestTime = "rt",
+        SearchMode = SearchMode.Realtime,
+        StatusBuckets = 300 // Enable the timeline
+    }))
+{
+    await job.TransitionAsync(DispatchState.Running);
+
+    while (!tokenSource.IsCancellationRequested)
+    {
+        SearchResultStream searchPreview = await job.GetSearchResultsPreviewAsync();
+        foreach (SearchResult result in searchPreview)
+        {
+            $end$
+        }
+    }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

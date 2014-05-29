@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>Export from a reporting search</Title>
+      <Author>
+      </Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>searchQuery</ID>
+          <ToolTip>Search to run</ToolTip>
+          <Default>search index=_internal | stats count by method</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[SearchPreviewStream previewStream = await service.ExportSearchPreviewsAsync(
+    "$searchQuery$",
+    new SearchExportArgs {
+        // Arguments for export are documented at:
+        //
+        //    http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTsearch#GET_search.2Fjobs.2Fexport
+    }
+);
+
+previewStream.Subscribe(
+    onNext: (searchPreview) => {
+        foreach (SearchResult result in searchPreview)
+        {
+            $end$
+        }
+    },
+    onError: (Exception e) => {
+        // handle the error
+    },
+    onCompleted: () => {
+        // handle completion
+    }
+);]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
