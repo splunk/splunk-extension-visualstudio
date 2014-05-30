@@ -149,6 +149,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ModularInputProjectWizard\ModularInputProjectWizard.csproj">
+      <Project>{192E7319-67B5-4CF6-88CE-A17B49EE7569}</Project>
+      <Name>ModularInputProjectWizard</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
+    </ProjectReference>
     <ProjectReference Include="..\SplunkSDKCSharpProjectTemplate\SplunkSDKCSharpProjectTemplate.csproj">
       <Project>{1A663876-7527-4480-A5A9-B520B21BC923}</Project>
       <Name>SplunkSDKCSharpProjectTemplate</Name>

@@ -44,7 +44,7 @@ namespace ModularInputProjectWizard
                 {
                     replacementsDictionary.Add("$author$", form.Author);
                     replacementsDictionary.Add("$version$", form.Version);
-                    if (form.VisibleInLauncher) replacementsDictionary.Add("$visibleInLauncher$", "true");
+                    replacementsDictionary.Add("$visibleInLauncher$", form.VisibleInLauncher.ToString());
                     replacementsDictionary.Add("$description$", form.Description);
                 }
                 else
@@ -52,7 +52,7 @@ namespace ModularInputProjectWizard
                     throw new WizardCancelledException();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 if (Directory.Exists(replacementsDictionary["$destinationDirectory$"]))
                     Directory.Delete(replacementsDictionary["$destinationDirectory$"]);

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="SplunkExtensionVisualStudio..bc08ac1c-659d-4e46-a5e4-1ff72303419b" Version="0.1" Language="en-US" Publisher="Splunk, Inc." />
+    <Identity Id="Splunk.Extension.VisualStudio" Version="0.1" Language="en-US" Publisher="Splunk, Inc." />
     <DisplayName>Splunk extension for Visual Studio</DisplayName>
     <Description xml:space="preserve">Extension to Visual Studio to support extending Splunk with C#.</Description>
     <License>LICENSE.txt</License>
@@ -14,5 +14,7 @@
   </Dependencies>
   <Assets>
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SplunkSDKCSharpProjectTemplate" d:TargetPath="|SplunkSDKCSharpProjectTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="ModularInputProjectWizard" Path="|ModularInputProjectWizard|" AssemblyName="|ModularInputProjectWizard;AssemblyName|" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SplunkModularInputProjectTemplate" d:TargetPath="|SplunkModularInputProjectTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
   </Assets>
 </PackageManifest>
