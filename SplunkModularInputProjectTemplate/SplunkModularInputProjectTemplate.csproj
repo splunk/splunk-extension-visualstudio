@@ -18,7 +18,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SplunkModularInputProjectTemplate</RootNamespace>
-    <AssemblyName>SplunkModularInputProjectTemplate</AssemblyName>
+    <AssemblyName>Splunk Modular Input Project Template</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
@@ -59,14 +59,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Program.cstemplate" />
+    <Content Include="Program.cstemplate">
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.conf" />
+    <Content Include="app.conf">
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="AssemblyInfo.cs" />
-    <None Include="input.conf.spec" />
-    <None Include="ProjectTemplate.csproj" />
+    <Content Include="inputs.conf.spec">
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectTemplate.csproj">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="SplunkModularInputProjectTemplate.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -23,8 +23,8 @@
     <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
   </WizardExtension>
   <WizardData>
-    <packages repository="extension" repositoryId="SplunkExtensionVisualStudio..bc08ac1c-659d-4e46-a5e4-1ff72303419b">
-      <package id="SplunkSDK" version="1.0.2"/>
+    <packages repository="extension" repositoryId="Splunk.Extension.VisualStudio">
+      <package id="Splunk.Client" version="2.0.0"/>
     </packages>
   </WizardData>
 </VSTemplate>

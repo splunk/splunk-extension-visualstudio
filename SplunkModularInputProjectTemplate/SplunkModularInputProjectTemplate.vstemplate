@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>SplunkModularInputProjectTemplate</Name>
-    <Description>SplunkModularInputProjectTemplate</Description>
+    <Name>Splunk Modular Input</Name>
+    <Description>Project to create and package a modular input for Splunk.</Description>
     <Icon>SplunkModularInputProjectTemplate.ico</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>bf916667-792a-4193-9363-b34d8a6022ef</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>SplunkModularInputProjectTemplate</DefaultName>
+    <DefaultName>SplunkModularInput</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
@@ -17,7 +17,7 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.cs">Program.cstemplate</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="AppSkeleton\default\app.conf">app.conf</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="AppSkeleton\README\input.conf.spec">input.conf.spec</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="AppSkeleton\README\inputs.conf.spec">inputs.conf.spec</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>
@@ -25,9 +25,9 @@
     <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
   </WizardExtension>
   <WizardData>
-    <packages repository="extension" repositoryId="SplunkExtensionVisualStudio..bc08ac1c-659d-4e46-a5e4-1ff72303419b">
-      <package id="SplunkSDK" version="1.0.2"/>
-      <package id="SplunkModularInputs" version="1.0.2"/>
+    <packages repository="extension" repositoryId="Splunk.Extension.VisualStudio">
+      <package id="Splunk.Client" version="2.0.0"/>
+      <package id="Splunk.ModularInputs" version="2.0.0" />
     </packages>
   </WizardData>
 </VSTemplate>
