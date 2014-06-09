@@ -78,7 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AssemblyInfo.cs" />
-    <None Include="Program.cs" />
+    <None Include="Program.cstemplate" />
     <None Include="ProjectTemplate.csproj" />
     <None Include="SplunkSDKCSharpProjectTemplate.ico" />
   </ItemGroup>

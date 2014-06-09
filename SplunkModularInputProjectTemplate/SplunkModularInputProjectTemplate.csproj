@@ -59,11 +59,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <None Include="Program.cstemplate" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.conf" />
     <None Include="AssemblyInfo.cs" />
+    <None Include="input.conf.spec" />
     <None Include="ProjectTemplate.csproj" />
     <None Include="SplunkModularInputProjectTemplate.ico" />
   </ItemGroup>

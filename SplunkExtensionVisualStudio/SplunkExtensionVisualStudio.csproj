@@ -155,6 +155,13 @@
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
       <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>
+    <ProjectReference Include="..\SplunkModularInputProjectTemplate\SplunkModularInputProjectTemplate.csproj">
+      <Project>{5C725EEF-E68A-4DF6-BDE0-D427C03678AF}</Project>
+      <Name>SplunkModularInputProjectTemplate</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\SplunkSDKCSharpProjectTemplate\SplunkSDKCSharpProjectTemplate.csproj">
       <Project>{1A663876-7527-4480-A5A9-B520B21BC923}</Project>
       <Name>SplunkSDKCSharpProjectTemplate</Name>
