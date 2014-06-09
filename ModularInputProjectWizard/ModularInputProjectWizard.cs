@@ -46,6 +46,7 @@ namespace ModularInputProjectWizard
                     replacementsDictionary.Add("$version$", form.Version);
                     replacementsDictionary.Add("$visibleInLauncher$", form.VisibleInLauncher.ToString());
                     replacementsDictionary.Add("$description$", form.Description);
+                    replacementsDictionary.Add("$label$", form.Label);
                 }
                 else
                 {

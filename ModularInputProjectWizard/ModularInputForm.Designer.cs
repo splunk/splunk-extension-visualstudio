@@ -39,6 +39,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.VisibleInLauncherCheckbox = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +48,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 21);
+            this.label1.Location = new System.Drawing.Point(7, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
@@ -57,7 +59,7 @@
             this.AuthorTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AuthorTextbox.BackColor = System.Drawing.Color.White;
-            this.AuthorTextbox.Location = new System.Drawing.Point(51, 11);
+            this.AuthorTextbox.Location = new System.Drawing.Point(51, 26);
             this.AuthorTextbox.Name = "AuthorTextbox";
             this.AuthorTextbox.Size = new System.Drawing.Size(480, 20);
             this.AuthorTextbox.TabIndex = 1;
@@ -66,7 +68,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 78);
+            this.label2.Location = new System.Drawing.Point(3, 86);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
@@ -76,7 +78,7 @@
             // VersionTextbox
             // 
             this.VersionTextbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.VersionTextbox.Location = new System.Drawing.Point(51, 75);
+            this.VersionTextbox.Location = new System.Drawing.Point(51, 82);
             this.VersionTextbox.Name = "VersionTextbox";
             this.VersionTextbox.Size = new System.Drawing.Size(78, 20);
             this.VersionTextbox.TabIndex = 3;
@@ -111,19 +113,22 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.AuthorTextbox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.DescriptionTextbox, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.VersionTextbox, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.VisibleInLauncherCheckbox, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.AuthorTextbox, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.DescriptionTextbox, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.VersionTextbox, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.VisibleInLauncherCheckbox, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelTextBox, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(18, 18);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(50);
             this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(204, 121);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -160,7 +165,7 @@
             // 
             this.VisibleInLauncherCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.VisibleInLauncherCheckbox.AutoSize = true;
-            this.VisibleInLauncherCheckbox.Location = new System.Drawing.Point(51, 110);
+            this.VisibleInLauncherCheckbox.Location = new System.Drawing.Point(51, 113);
             this.VisibleInLauncherCheckbox.Name = "VisibleInLauncherCheckbox";
             this.VisibleInLauncherCheckbox.Size = new System.Drawing.Size(210, 17);
             this.VisibleInLauncherCheckbox.TabIndex = 7;
@@ -172,12 +177,30 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label4, 2);
-            this.label4.Location = new System.Drawing.Point(49, 34);
+            this.label4.Location = new System.Drawing.Point(49, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(482, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "(This should be your splunk.com user name if you intend to publish this modular i" +
     "nput to SplunkBase.)";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(33, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Label";
+            // 
+            // labelTextBox
+            // 
+            this.labelTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelTextBox.Location = new System.Drawing.Point(51, 3);
+            this.labelTextBox.Name = "labelTextBox";
+            this.labelTextBox.Size = new System.Drawing.Size(194, 20);
+            this.labelTextBox.TabIndex = 9;
             // 
             // ModularInputForm
             // 
@@ -210,5 +233,7 @@
         private System.Windows.Forms.CheckBox VisibleInLauncherCheckbox;
         private System.Windows.Forms.TextBox DescriptionTextbox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox labelTextBox;
     }
 }

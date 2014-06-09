@@ -16,6 +16,7 @@ namespace ModularInputProjectWizard
         public string Version { get; private set; }
         public string Description { get; private set; }
         public bool VisibleInLauncher { get; private set; }
+        public string Label { get; private set; }
 
 
         public ModularInputForm()
@@ -48,9 +49,11 @@ namespace ModularInputProjectWizard
             VisibleInLauncher = VisibleInLauncherCheckbox.Checked;
 
             Description = this.DescriptionTextbox.Text;
+            Label = this.labelTextBox.Text;
 
             DialogResult = DialogResult.OK;
             this.Dispose();
         }
+
     }
 }
