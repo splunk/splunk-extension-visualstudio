@@ -20,4 +20,14 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="AppSkeleton\README\input.conf.spec">input.conf.spec</ProjectItem>
     </Project>
   </TemplateContent>
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <packages repository="extension" repositoryId="SplunkExtensionVisualStudio..bc08ac1c-659d-4e46-a5e4-1ff72303419b">
+      <package id="SplunkSDK" version="1.0.2"/>
+      <package id="SplunkModularInputs" version="1.0.2"/>
+    </packages>
+  </WizardData>
 </VSTemplate>

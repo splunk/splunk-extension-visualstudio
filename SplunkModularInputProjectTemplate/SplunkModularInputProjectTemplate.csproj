@@ -14,7 +14,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>674ccdd6-1a52-4c22-b911-bd799429b98d</ProjectGuid>
+    <ProjectGuid>{5C725EEF-E68A-4DF6-BDE0-D427C03678AF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SplunkModularInputProjectTemplate</RootNamespace>
@@ -59,11 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AssemblyInfo.cs" />
-    <None Include="Class1.cs" />
     <None Include="ProjectTemplate.csproj" />
     <None Include="SplunkModularInputProjectTemplate.ico" />
   </ItemGroup>

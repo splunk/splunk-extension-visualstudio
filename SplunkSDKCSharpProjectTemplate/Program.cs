@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 $if$ ($targetframeworkversion$ >= 3.5)using System.Linq;
 $endif$using System.Text;
-using Splunk;
+using Splunk.Client;
 
+// This is a template for new users of the Splunk SDK for Java.
+// The code below connects to a Splunk instance, runs a search,
+// and prints out the results in a crude form.
 namespace $safeprojectname$
 {
-	public class Main
+	public class Program
 	{
         static void Main(string[] args)
         {
@@ -22,25 +25,22 @@ namespace $safeprojectname$
             //// Login
             await service.LoginAsync("admin", "changeme");
 
+            using (SearchResultStream resultStream = await service.SearchOneshotAsync(
+                "search index=_internal | head 5",
+                new JobArgs {
+                	// For a full list of options, see:
+	            	//
+		            //     http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTsearch#POST_search.2Fjobs
 
-            //// Search : Pull model (foreach loop => IEnumerable)
-            Job job = await service.StartJobAsync("search index=_internal | head 10");
-            SearchResults searchResults;
-
-            using (searchResults = await job.GetSearchResultsAsync())
+		            EarliestTime = "now-1w",
+                    LatestTime = "now"
+                }))
             {
-                int recordNumber = 0;
-                try
+                foreach (SearchResult result in resultStream)
                 {
-                    foreach (var record in searchResults)
-                    {
-                        Console.WriteLine(string.Format("{0:D8}: {1}", ++recordNumber, record));
-                    }
+                    Console.WriteLine(result);
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine(string.Format("SearchResults error: {0}", e.Message));
-                }
+            }
             }
         }
 	}
