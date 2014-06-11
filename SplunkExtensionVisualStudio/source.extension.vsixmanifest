@@ -5,6 +5,7 @@
     <DisplayName>Splunk extension for Visual Studio</DisplayName>
     <Description xml:space="preserve">Extension to Visual Studio to support extending Splunk with C#.</Description>
     <License>LICENSE.txt</License>
+    <Icon>Splunk Plugin.png</Icon>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[11.0,]" />
@@ -15,5 +16,6 @@
   <Assets>
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SplunkSDKCSharpProjectTemplate" d:TargetPath="|SplunkSDKCSharpProjectTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SplunkModularInputProjectTemplate" d:TargetPath="|SplunkModularInputProjectTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="ModularInputWizard" Path="|ModularInputWizard|" AssemblyName="|ModularInputWizard;AssemblyName|" />
   </Assets>
 </PackageManifest>

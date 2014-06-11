@@ -8,9 +8,9 @@ using EnvDTE;
 using System.Windows.Forms;
 using System.IO;
 
-namespace ModularInputProjectWizard
+namespace Splunk.VisualStudio
 {
-    class ModularInputProjectWizard : IWizard
+    public class ModularInputProjectWizard : IWizard
     {
         public void BeforeOpeningFile(ProjectItem projectItem)
         {

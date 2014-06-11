@@ -125,6 +125,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="Splunk Plugin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -153,9 +157,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ModularInputProjectWizard\ModularInputProjectWizard.csproj">
-      <Project>{192E7319-67B5-4CF6-88CE-A17B49EE7569}</Project>
-      <Name>ModularInputProjectWizard</Name>
+    <ProjectReference Include="..\ModularInputWizard\ModularInputWizard.csproj">
+      <Project>{A5214EF7-7523-4D08-A12A-A24EFFCE362A}</Project>
+      <Name>ModularInputWizard</Name>
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
       <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>

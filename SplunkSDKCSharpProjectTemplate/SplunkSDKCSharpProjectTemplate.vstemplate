@@ -3,7 +3,7 @@
   <TemplateData>
     <Name>Splunk SDK for C# Project</Name>
     <Description>C# project with NuGet packages for connecting to Splunk and example code.</Description>
-    <!-- TODO: Add icon <Icon></Icon>-->
+    <Icon>Splunk Template.png</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>

@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualStudio.TemplateWizard;
+using EnvDTE;
 
-namespace ModularInputProjectWizard
+namespace Splunk.VisualStudio
 {
-    public partial class ModularInputForm : Form
+    public partial class ModularInputForm : IWizard
     {
         public string Author { get; private set; }
         public string Version { get; private set; }

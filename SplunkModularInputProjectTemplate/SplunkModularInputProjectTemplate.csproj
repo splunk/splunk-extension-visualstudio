@@ -64,6 +64,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Splunk Template.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.conf">

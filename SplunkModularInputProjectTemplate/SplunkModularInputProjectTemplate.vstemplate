@@ -3,7 +3,7 @@
   <TemplateData>
     <Name>Splunk Modular Input</Name>
     <Description>Project to create and package a modular input for Splunk.</Description>
-    <Icon>SplunkModularInputProjectTemplate.ico</Icon>
+    <Icon>Splunk Template.png</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
@@ -30,4 +30,8 @@
       <package id="Splunk.ModularInputs" version="2.0.0" />
     </packages>
   </WizardData>
+  <WizardExtension>
+    <Assembly>ModularInputWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=952259cc2789ffa1</Assembly>
+    <FullClassName>ModularInputWizard.Wizard</FullClassName>
+  </WizardExtension>
 </VSTemplate>

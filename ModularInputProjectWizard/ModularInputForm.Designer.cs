@@ -1,4 +1,4 @@
-﻿namespace ModularInputProjectWizard
+﻿namespace Splunk.VisualStudio
 {
     partial class ModularInputForm
     {
