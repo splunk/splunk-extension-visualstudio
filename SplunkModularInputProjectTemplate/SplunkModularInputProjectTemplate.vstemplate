@@ -16,8 +16,8 @@
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.cs">Program.cstemplate</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="AppSkeleton\default\app.conf">app.conf</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="AppSkeleton\README\inputs.conf.spec">inputs.conf.spec</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$\default\app.conf">app.conf</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$\README\inputs.conf.spec">inputs.conf.spec</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>
