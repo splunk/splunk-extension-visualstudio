@@ -64,14 +64,20 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Splunk Template.png" />
+    <Content Include="Splunk Template.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.conf">
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="AssemblyInfo.cs" />
+    <Content Include="AssemblyInfo.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="inputs.conf.spec">
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -79,7 +85,6 @@
     <Content Include="ProjectTemplate.csproj">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <None Include="SplunkModularInputProjectTemplate.ico" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="SplunkModularInputProjectTemplate.vstemplate" />

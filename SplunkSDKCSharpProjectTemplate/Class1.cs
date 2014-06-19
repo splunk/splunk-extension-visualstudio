@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-$if$ ($targetframeworkversion$ >= 3.5)using System.Linq;
-$endif$using System.Text;
+using System.Text;
 using Splunk.Client;
 
 // This is a template for new users of the Splunk SDK for Java.
@@ -9,7 +8,7 @@ using Splunk.Client;
 // and prints out the results in a crude form.
 namespace $safeprojectname$
 {
-	public class Program
+	public class Class1
 	{
         static void Main(string[] args)
         {
