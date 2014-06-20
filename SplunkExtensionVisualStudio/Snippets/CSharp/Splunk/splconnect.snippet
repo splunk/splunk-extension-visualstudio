@@ -33,14 +33,6 @@
           <Function>
           </Function>
         </Literal>
-        <Object Editable="true">
-          <ID>scheme</ID>
-          <ToolTip>Specify encrypted (Scheme.Https) or unencrypted (Scheme.Http) connection</ToolTip>
-          <Default>Scheme.Https</Default>
-          <Function>
-          </Function>
-          <Type>Scheme</Type>
-        </Object>
         <Literal Editable="true">
           <ID>username</ID>
           <ToolTip>Username to log into Splunk with</ToolTip>
@@ -55,8 +47,16 @@
           <Function>
           </Function>
         </Literal>
+        <Object Editable="true">
+          <ID>scheme</ID>
+          <ToolTip>Specify encrypted (Scheme.Https) or unencrypted (Scheme.Http) connection</ToolTip>
+          <Default>Scheme.Https</Default>
+          <Function>
+          </Function>
+          <Type>Scheme</Type>
+        </Object>
       </Declarations>
-      <Code Language="csharp"><![CDATA[using (var service = new Service($scheme$, "$host$", $port$, new Namespace()))
+      <Code Language="csharp"><![CDATA[using (var service = new Service($scheme$, "$host$", $port$))
 {
     await service.LoginAsync("$username$", "$password$");
     $selected$$end$
