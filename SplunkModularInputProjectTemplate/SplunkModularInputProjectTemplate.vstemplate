@@ -19,6 +19,10 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$\default\app.conf">app.conf</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$\README\inputs.conf.spec">inputs.conf.spec</ProjectItem>
     </Project>
+    <CustomParameters>
+      <CustomParameter Name="BeaconAsset" Value="splunk-extension-visualstudio:0.8"/>
+      <CustomParameter Name="BeaconAction" Value="create splunk modular input project"/>
+    </CustomParameters>
   </TemplateContent>
   <WizardExtension>
     <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
@@ -33,5 +37,9 @@
   <WizardExtension>
     <Assembly>ModularInputWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=952259cc2789ffa1</Assembly>
     <FullClassName>ModularInputWizard.Wizard</FullClassName>
+  </WizardExtension>
+  <WizardExtension>
+    <Assembly>BeaconWizard, Version=???</Assembly>
+    <FullClassName>BeaconWizard.Wizard</FullClassName>
   </WizardExtension>
 </VSTemplate>
