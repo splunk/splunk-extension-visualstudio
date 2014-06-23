@@ -12,8 +12,7 @@
       </Description>
       <HelpUrl>
       </HelpUrl>
-      <Shortcut>
-      </Shortcut>
+      <Shortcut>spldispatch</Shortcut>
     </Header>
     <Snippet>
       <Declarations>
@@ -25,7 +24,7 @@
           </Function>
         </Literal>
       </Declarations>
-      <Code Language="csharp"><![CDATA[ SavedSearch savedSearch = await service.GetSavedSearchAsync("$savedSearchName$");
+      <Code Language="csharp"><![CDATA[SavedSearch savedSearch = await service.GetSavedSearchAsync("$savedSearchName$");
  
 Job savedSearchJob = null;
 JobCollection savedSearchJobHistory = await savedSearch.GetHistoryAsync();
