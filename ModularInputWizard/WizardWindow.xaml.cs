@@ -23,6 +23,7 @@ namespace ModularInputWizard
             VisibleInLauncher = false;
             Description = "";
             Version = "0.1.0";
+            GenerateExampleImplementation = true;
         }
 
         public static readonly DependencyProperty AuthorProperty =
@@ -65,6 +66,14 @@ namespace ModularInputWizard
             set { SetValue(VersionProperty, value); }
         }
 
+        public static readonly DependencyProperty GenerateExampleImplementationProperty = 
+            DependencyProperty.Register("GenerateExampleImplementation", typeof(bool), typeof(WizardWindow), new UIPropertyMetadata());
+        public bool GenerateExampleImplementation
+        {
+            get { return (bool)GetValue(GenerateExampleImplementationProperty); }
+            set { SetValue(GenerateExampleImplementationProperty, value); }
+        }
+        
     }
 
     /// <summary>

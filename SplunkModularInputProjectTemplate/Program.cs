@@ -16,7 +16,7 @@ namespace $safeprojectname$
         {
             get {
                 return new Scheme
-                {
+                {$if$ ($generateExampleImplementation$ == true)
                     Title = "Random numbers",
                     Description = "Generate random numbers in the specified range",
                     Arguments = new List<Argument>
@@ -35,14 +35,14 @@ namespace $safeprojectname$
                                 DataType = DataType.Number,
                                 RequiredOnCreate = true
                             }
-                    }
+                    }$endif$
                 };
 
             }
         }
             
         public override bool Validate(Validation validation, out string errorMessage)
-        {
+        {$if$ ($generateExampleImplementation$ == true)
             double min = (double)validation.Parameters["min"];
             double max = (double)validation.Parameters["max"];
 
@@ -54,11 +54,13 @@ namespace $safeprojectname$
             {
                 errorMessage = "";
                 return true;
-            }
+            }$endif$$if$ ($generateExampleImplementation$ == false)
+			errorMessage = "";
+			return true;$endif$
         }
 
         public override async Task StreamEventsAsync(InputDefinition inputDefinition, EventWriter eventWriter)
-        {
+        {$if$ ($generateExampleImplementation$ == true)
             double min = (double)inputDefinition.Parameters["min"];
             double max = (double)inputDefinition.Parameters["max"];
 
@@ -72,7 +74,7 @@ namespace $safeprojectname$
                     Stanza = inputDefinition.Name,
                     Data = "number=" + (rnd.NextDouble() * (max - min) + min)
                 });
-            }
+            }$endif$
         }
     }
 }

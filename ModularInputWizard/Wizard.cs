@@ -26,6 +26,7 @@ namespace ModularInputWizard
                 replacementsDictionary.Add("$author$", model.Author);
                 replacementsDictionary.Add("$version$", model.Version);
                 replacementsDictionary.Add("$description$", model.Description);
+                replacementsDictionary.Add("$generateExampleImplementation$", model.GenerateExampleImplementation ? "true" : "false");
             }
             else
             {

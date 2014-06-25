@@ -59,9 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Program.cstemplate">
-      <IncludeInVSIX>true</IncludeInVSIX>
+    <Content Include="Program.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Splunk Template.png">

@@ -12,6 +12,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
 
@@ -65,8 +66,13 @@
                                Name="DescriptionTextBox" 
                                Text="{Binding Description}"/>
 
+        <CheckBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" 
+                  Content="Generate an example implementation"
+                  HorizontalAlignment="Left" Margin="10,5,10,5" Name="GenerateExampleImplementationCheckbox" 
+                  IsChecked="{Binding GenerateExampleImplementation}"/>
 
-        <StackPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+
+        <StackPanel Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button HorizontalAlignment="Right" Width="75" Margin="5,0" Click="OkButton_Click" Content="OK">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
