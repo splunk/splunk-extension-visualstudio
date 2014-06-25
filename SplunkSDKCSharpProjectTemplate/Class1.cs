@@ -25,22 +25,22 @@ namespace $safeprojectname$
             //// Login
             await service.LoginAsync("admin", "changeme");
 
-            using (SearchResultStream resultStream = await service.SearchOneshotAsync(
-                "search index=_internal | head 5",
-                new JobArgs {
+            var query = "search index=_internal | head 5";
+            var args = new JobArgs {
                 	// For a full list of options, see:
 	            	//
 		            //     http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTsearch#POST_search.2Fjobs
 
 		            EarliestTime = "now-1w",
                     LatestTime = "now"
-                }))
+            };
+
+            using (SearchResultStream resultStream = await service.SearchOneshotAsync(query, args))
             {
                 foreach (SearchResult result in resultStream)
                 {
                     Console.WriteLine(result);
                 }
-            }
             }
         }
 	}
