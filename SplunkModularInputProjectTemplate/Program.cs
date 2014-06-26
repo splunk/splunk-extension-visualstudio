@@ -43,8 +43,8 @@ namespace $safeprojectname$
             
         public override bool Validate(Validation validation, out string errorMessage)
         {$if$ ($generateExampleImplementation$ == true)
-            double min = (double)validation.Parameters["min"];
-            double max = (double)validation.Parameters["max"];
+            double min = validation.Parameters["min"].ToDouble();
+            double max = validation.Parameters["max"].ToDouble();
 
             if (min >= max) {
                 errorMessage = "min must be less than max.";
@@ -61,8 +61,8 @@ namespace $safeprojectname$
 
         public override async Task StreamEventsAsync(InputDefinition inputDefinition, EventWriter eventWriter)
         {$if$ ($generateExampleImplementation$ == true)
-            double min = (double)inputDefinition.Parameters["min"];
-            double max = (double)inputDefinition.Parameters["max"];
+            double min = inputDefinition.Parameters["min"].ToDouble();
+            double max = inputDefinition.Parameters["max"].ToDouble();
 
             Random rnd = new Random();
 
