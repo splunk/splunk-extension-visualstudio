@@ -2,7 +2,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text;
-using Splunk.Client;
+using Splunk.Client; $if$ ($logging$ == tracelistener)
+using System.Diagnostics;
+using System.Net;
+using Splunk.Logging; $endif$ $if$ ($logging$ == slab)
+using System.Net;
+using Microsoft.Practices.EnterpriseLibrary.SemanticLogging;
+using Splunk.Logging; $endif$
 
 // This is a template for new users of the Splunk SDK for Java.
 // The code below connects to a Splunk instance, runs a search,
@@ -12,13 +18,15 @@ namespace $safeprojectname$
 	public class Class1
 	{
         static void Main(string[] args)
-        {
+        {$if$ ($logging$ == tracelistener)
+            TraceSource traceSource = ConfigureLogging(IPAddress.Loopback, 10000);$endif$ $if$ ($logging$ == slab)
+			var listener = new ObservableEventListener();
+            listener.Subscribe(new UdpEventSink(IPAddress.Loopback, 10000));$endif$ $if$ ($generateExampleImplementation$ == true)
             using (var service = new Service(Scheme.Https, "localhost", 8089))
             {
                 Run(service).Wait();
-            }
-        }
-
+            }$endif$
+		}$if$ ($generateExampleImplementation$ == true)
 
         static async Task Run(Service service)
         {
@@ -42,6 +50,17 @@ namespace $safeprojectname$
                     Console.WriteLine(result);
                 }
             }
-        }
+        }$endif$ $if$ ($logging$ == tracelistener)
+
+        static TraceSource ConfigureLogging(IPAddress host, int port)
+        {
+            var traceSource = new TraceSource("UnitTestLogger");
+
+            traceSource.Listeners.Remove("Default");
+            traceSource.Switch.Level = SourceLevels.All;
+            traceSource.Listeners.Add(new UdpTraceListener(host, port));
+
+            return traceSource;
+        }$endif$
 	}
 }
