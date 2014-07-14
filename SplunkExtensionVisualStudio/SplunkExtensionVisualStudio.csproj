@@ -159,12 +159,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LICENSE.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\CSharpProjectWizard\CSharpProjectWizard.csproj">
       <Project>{9E456A5F-8125-42B4-A59F-CE84D41C902F}</Project>
       <Name>CSharpProjectWizard</Name>
