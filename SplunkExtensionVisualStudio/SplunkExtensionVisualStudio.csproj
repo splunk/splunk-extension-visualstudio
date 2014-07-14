@@ -129,11 +129,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\EnterpriseLibrary.SemanticLogging.1.1.1403.1.nupkg">
+    <Content Include="Packages\Splunk.Client.2.0.0.0.nupkg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\Splunk.Client.2.0.0.0.nupkg">
+    <Content Include="Packages\EnterpriseLibrary.SemanticLogging.2.0.1406.1.nupkg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>

@@ -2,7 +2,7 @@
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>Splunk Modular Input</Name>
-    <Description>Project to create and package a modular input for Splunk.</Description>
+    <Description>Create a program that implements a new class of data inputs for Splunk.</Description>
     <Icon>Splunk Template.png</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
