@@ -37,6 +37,10 @@ namespace $safeprojectname$
             }$endif$
 		}$if$ ($generateExampleImplementation$ == true)
 
+        /// <summary>
+        /// Runs the work to be done on a service, starting with login.
+        /// </summary>
+        /// <param name="service">A connection to a Splunk server.</param>
         static async Task Run(Service service)
         {
             //// Login
@@ -61,7 +65,13 @@ namespace $safeprojectname$
             }
         }$endif$ $if$ ($logging$ == tracelistener)
 
-        static TraceSource ConfigureLogging(IPAddress host, int port)
+        /// <summary>
+        /// Configures a TraceSource to log to a UDP input.
+        /// </summary>
+        /// <param name="host">The host to send UDP datagrams to.</param>
+        /// <param name="port">The port to send UDP datagrams to.</param>
+        /// <returns>A TraceSource instance.</returns>
+		static TraceSource ConfigureLogging(IPAddress host, int port)
         {
             var traceSource = new TraceSource("TestLogger");
 
@@ -72,6 +82,9 @@ namespace $safeprojectname$
             return traceSource;
         }$endif$ $if$ ($logging$ == slab)
 
+		/// <summary>
+        /// A simple SLAB EventSource that generates informational messages.
+        /// </summary>
 		[EventSource(Name="TestEventSource")]
         public class SimpleEventSource : EventSource
         {

@@ -7,11 +7,27 @@ namespace $safeprojectname$
 {
     public class Program : ModularInput
     {
+        /// <summary>
+        /// Main method which dispatches to ModularInput.Run&lt;T&gt;.
+        /// </summary>
+        /// <param name="args">The command line arguments.</param>
+        /// <returns>An exit code.</returns>
         public static int Main(string[] args)
         {
             return Run<Program>(args);
         }
 
+        /// <summary>
+        /// Define a Scheme instance that describes this modular input's behavior. The scheme
+        /// will be serialized to XML and printed to stdout when this program is invoked with
+        /// the sole argument <tt>--scheme</tt>, which Splunk does when starting up and each time
+        /// the app containing the modular input is enabled.
+        /// </summary>
+        /// <remarks>
+        /// You must define a Title, Description, and a list of Arguments. Each argument
+        /// you list here must also be specified in
+        /// <tt>$safeprojectname$\README\inputs.conf.spec</tt>.
+        /// </remarks>
         public override Scheme Scheme
         {
             get {
@@ -40,7 +56,16 @@ namespace $safeprojectname$
 
             }
         }
-            
+           
+        /// <summary>
+        /// Check that the values of arguments specified for a newly created or edited instance of
+        /// this modular input are valid. If they are valid, set <tt>errorMessage</tt> to <tt>""</tt>
+        /// and return <tt>true</tt>. Otherwise, set <tt>errorMessage</tt> to an informative explanation 
+        /// of what makes the arguments invalid and return <tt>false</tt>.
+        /// </summary>
+        /// <param name="validation">a Validation object specifying the new argument values.</param>
+        /// <param name="errorMessage">an output parameter to pass back an error message.</param>
+        /// <returns><tt>true</tt> if the arguments are valid and <tt>false</tt> otherwise.</returns>
         public override bool Validate(Validation validation, out string errorMessage)
         {$if$ ($generateExampleImplementation$ == true)
             double min = validation.Parameters["min"].ToDouble();
@@ -59,6 +84,17 @@ namespace $safeprojectname$
 			return true;$endif$
         }
 
+        /// <summary>
+        /// Write events to Splunk from this modular input.
+        /// </summary>
+        /// <remarks>
+        /// This function will be invoked once for each instance of the modular input, though that invocation
+        /// may or may not be in separate processes, depending on how the modular input is configured. It should
+        /// extract the arguments it needs from <tt>inputDefinition</tt>, then write events to <tt>eventWriter</tt>
+        /// (which is thread safe).
+        /// </remarks>
+        /// <param name="inputDefinition">a specification of this instance of the modular input.</param>
+        /// <param name="eventWriter">an object that handles writing events to Splunk.</param>
         public override async Task StreamEventsAsync(InputDefinition inputDefinition, EventWriter eventWriter)
         {$if$ ($generateExampleImplementation$ == true)
             double min = inputDefinition.Parameters["min"].ToDouble();
