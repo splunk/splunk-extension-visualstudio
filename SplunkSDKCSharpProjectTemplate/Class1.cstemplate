@@ -11,7 +11,7 @@ using Microsoft.Practices.EnterpriseLibrary.SemanticLogging;
 using Splunk.Logging;
 using System.Diagnostics.Tracing;$endif$
 
-// This is a template for new users of the Splunk SDK for Java.
+// This is a template for new users of the Splunk SDK for C#.
 // The code below connects to a Splunk instance, runs a search,
 // and prints out the results in a crude form.
 namespace $safeprojectname$
