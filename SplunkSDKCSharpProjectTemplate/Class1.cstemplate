@@ -77,7 +77,7 @@ namespace $safeprojectname$
             public class Keywords {}
             public class Tasks {}
 
-			[Event(1, Message = "{0}", Level = EventLevel.Error)]
+			[Event(1, Message = "{0}", Level = EventLevel.Informational)]
             internal void Message(string message)
             {
                 this.WriteEvent(1, message);
