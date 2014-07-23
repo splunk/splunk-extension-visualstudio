@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text;
+using System.Net;
 using Splunk.Client; $if$ ($logging$ == tracelistener)
 using System.Diagnostics;
 using System.Net;
 using Splunk.Logging; $endif$ $if$ ($logging$ == slab)
-using System.Net;
 using Microsoft.Practices.EnterpriseLibrary.SemanticLogging;
 using Splunk.Logging;
 using System.Diagnostics.Tracing;$endif$
@@ -31,6 +31,14 @@ namespace $safeprojectname$
 
             eventSource.Message("Logging started.");
 			$endif$ $if$ ($generateExampleImplementation$ == true)
+			// This is required to work with the unsigned certificates that ship with Splunk
+			// by default. You should remove it when talking to a production Splunk server, which
+			// should have proper certificates installed.
+			ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
+
             using (var service = new Service(Scheme.Https, "localhost", 8089))
             {
                 Run(service).Wait();
@@ -52,7 +60,7 @@ namespace $safeprojectname$
 	            	//
 		            //     http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTsearch#POST_search.2Fjobs
 
-		            EarliestTime = "now-1w",
+		            EarliestTime = "-1w",
                     LatestTime = "now"
             };
 
