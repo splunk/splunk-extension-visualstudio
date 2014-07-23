@@ -91,7 +91,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="SplunkSDKCSharpProjectTemplate.vstemplate" />
+    <VSTemplate Include="SplunkSDKCSharpProjectTemplate.vstemplate">
+      <OutputSubPath>Splunk</OutputSubPath>
+    </VSTemplate>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
