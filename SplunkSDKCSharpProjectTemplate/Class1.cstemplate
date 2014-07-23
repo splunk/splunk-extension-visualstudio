@@ -63,7 +63,7 @@ namespace $safeprojectname$
 
         static TraceSource ConfigureLogging(IPAddress host, int port)
         {
-            var traceSource = new TraceSource("UnitTestLogger");
+            var traceSource = new TraceSource("TestLogger");
 
             traceSource.Listeners.Remove("Default");
             traceSource.Switch.Level = SourceLevels.All;
