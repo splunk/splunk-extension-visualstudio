@@ -71,6 +71,7 @@ namespace $safeprojectname$
 
             return traceSource;
         }$endif$ $if$ ($logging$ == slab)
+
 		[EventSource(Name="TestEventSource")]
         public class SimpleEventSource : EventSource
         {
