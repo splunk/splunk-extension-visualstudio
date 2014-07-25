@@ -90,9 +90,12 @@ namespace $safeprojectname$
             return traceSource;
         }$endif$ $if$ ($logging$ == slab)
 
-		/// <summary>
-        /// A simple SLAB EventSource that generates informational messages.
-        /// </summary>
+		// This example is purely illustrative of how to use SLAB to send events to Splunk.
+		// It is not however a recommended pattern for how to use SLAB itself. For more 
+		// information on the proper usage of SLAB and how to properly design Event Sources, 
+		// see the SLAB documentation:
+		//
+		//     http://msdn.microsoft.com/en-us/library/dn440729(v=pandp.60).aspx
 		[EventSource(Name="TestEventSource")]
         public class SimpleEventSource : EventSource
         {
