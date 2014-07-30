@@ -5,7 +5,6 @@ using System.Text;
 using System.Net;
 using Splunk.Client; $if$ ($logging$ == tracelistener)
 using System.Diagnostics;
-using System.Net;
 using Splunk.Logging; $endif$ $if$ ($logging$ == slab)
 using Microsoft.Practices.EnterpriseLibrary.SemanticLogging;
 using Splunk.Logging;
