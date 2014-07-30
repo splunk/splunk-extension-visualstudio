@@ -52,8 +52,17 @@
 
         <Label Grid.Row="2" Grid.Column="0" Content="Label" HorizontalAlignment="Right"/>
         <xctk:WatermarkTextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" 
-                               Watermark="Label to display in launcher" Name="LabelTextBox"
-                               Text="{Binding Label}" />
+                               Watermark="Human readable name for the generated app" Name="LabelTextBox">
+            <xctk:WatermarkTextBox.Text>
+                <Binding Path="Label" UpdateSourceTrigger="PropertyChanged">
+
+                    <Binding.ValidationRules>
+                        <rules:TextBoxNotEmptyValidationRule ErrorMessage="Author must not be empty."
+                                                             ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </xctk:WatermarkTextBox.Text>
+        </xctk:WatermarkTextBox>
 
         <CheckBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
                   Content="App container should be visible in launcher"
@@ -82,6 +91,7 @@
                                 <MultiDataTrigger.Conditions>
                                     <Condition Binding="{Binding ElementName=AuthorTextBox, Path=(Validation.HasError)}" Value="false" />
                                     <Condition Binding="{Binding ElementName=VersionTextBox, Path=(Validation.HasError)}" Value="false" />
+                                    <Condition Binding="{Binding ElementName=LabelTextBox, Path=(Validation.HasError)}" Value="false" />
                                 </MultiDataTrigger.Conditions>
                                 <Setter Property="IsEnabled" Value="true" />
                             </MultiDataTrigger>
