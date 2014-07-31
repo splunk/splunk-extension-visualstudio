@@ -93,6 +93,7 @@
   <ItemGroup>
     <VSTemplate Include="SplunkSDKCSharpProjectTemplate.vstemplate">
       <OutputSubPath>Splunk</OutputSubPath>
+      <SubType>Designer</SubType>
     </VSTemplate>
   </ItemGroup>
   <ItemGroup>

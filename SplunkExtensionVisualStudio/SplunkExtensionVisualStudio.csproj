@@ -133,11 +133,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\Splunk.Client.2.0.0.0.nupkg">
+    <Content Include="Packages\Splunk.Client.2.0.0-beta.nupkg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\Splunk.ModularInputs.2.0.0.0.nupkg">
+    <Content Include="Packages\Splunk.ModularInputs.2.0.0-beta.nupkg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
