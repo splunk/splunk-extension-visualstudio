@@ -26,7 +26,7 @@
   <WizardData>
     <packages repository="extension" repositoryId="Splunk.Extension.VisualStudio">
       <package id="Splunk.Client" version="2.0.0-beta"/>
-      <package id="Splunk.Logging" version="0.8.0.0" />
+      <package id="Splunk.Logging" version="1.0.0-beta" />
       <package id="EnterpriseLibrary.SemanticLogging" version="2.0.1406.1" />
     </packages>
   </WizardData>
