@@ -24,9 +24,9 @@
           </Function>
         </Literal>
       </Declarations>
-      <Code Language="csharp"><![CDATA[using (SearchResultStream resultsStream = await service.SearchOneshotAsync(
+      <Code Language="csharp"><![CDATA[using (SearchResultStream resultsStream = await service.SearchOneShotAsync(
     "$searchQuery$", 
-    new JobArgs {
+    args:new JobArgs {
         // For a full list of options, see:
         //
         //     http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTsearch#POST_search.2Fjobs

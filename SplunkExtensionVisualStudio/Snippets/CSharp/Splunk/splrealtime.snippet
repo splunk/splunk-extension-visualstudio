@@ -24,27 +24,35 @@
           </Function>
         </Literal>
       </Declarations>
-      <Code Language="csharp"><![CDATA[using (CancellationTokenSource tokenSource = new CancellationTokenSource())
-using (Job job = await service.CreateJobAsync(
+      <Code Language="csharp">
+        <![CDATA[System.Threading.CancellationTokenSource tokenSource = new System.Threading.CancellationTokenSource();
+Job job = await service.Jobs.CreateAsync(
     "$searchQuery$",
-    new JobArgs {
+    args:new JobArgs {
         EarliestTime = "rt-1h",
         LatestTime = "rt",
-        SearchMode = SearchMode.Realtime,
+        SearchMode = SearchMode.RealTime,
         StatusBuckets = 300 // Enable the timeline
-    }))
-{
-    await job.TransitionAsync(DispatchState.Running);
+    });
 
-    while (!tokenSource.IsCancellationRequested)
-    {
-        SearchResultStream searchPreview = await job.GetSearchResultsPreviewAsync();
-        foreach (SearchResult result in searchPreview)
-        {
-            $end$
-        }
-    }
-}]]></Code>
+await job.TransitionAsync(DispatchState.Running);
+ 
+Console.WriteLine("Press any key to quit");
+Task.Run(async () =>
+{
+  Console.ReadLine();
+  tokenSource.Cancel();
+});
+
+while (!tokenSource.IsCancellationRequested)
+{
+  SearchResultStream searchPreview = await job.GetSearchPreviewAsync();
+  foreach (SearchResult result in searchPreview)
+   {
+       $end$
+   }
+}
+]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

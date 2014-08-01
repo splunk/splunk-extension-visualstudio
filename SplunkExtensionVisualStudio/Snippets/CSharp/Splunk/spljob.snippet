@@ -24,9 +24,10 @@
           </Function>
         </Literal>
       </Declarations>
-      <Code Language="csharp"><![CDATA[Job job = await service.CreateJobAsync(
+      <Code Language="csharp">
+        <![CDATA[Job job = await service.Jobs.CreateAsync(
     "$searchQuery$",
-    new JobArgs {
+    args:new JobArgs {
         // Set job options. See
         //
         //     http://docs.splunk.com/DocumentationStatic/JavaSDK/1.1/com/splunk/JobArgs.html

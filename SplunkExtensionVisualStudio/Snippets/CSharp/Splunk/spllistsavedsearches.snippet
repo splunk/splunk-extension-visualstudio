@@ -17,7 +17,9 @@
     <Snippet>
       <Declarations>
       </Declarations>
-      <Code Language="csharp"><![CDATA[ foreach (SavedSearch savedSearch in await service.GetSavedSearchesAsync())
+      <Code Language="csharp">
+        <![CDATA[ await service.SavedSearches.GetAllAsync();
+foreach (SavedSearch savedSearch in service.SavedSearches)        
  {
     $end$
  }]]></Code>

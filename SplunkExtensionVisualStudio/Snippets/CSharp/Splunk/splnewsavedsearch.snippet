@@ -31,7 +31,8 @@
           </Function>
         </Literal>
       </Declarations>
-      <Code Language="csharp"><![CDATA[SavedSearch savedSearch = await service.SavedSearches.CreateAsync(
+      <Code Language="csharp">
+        <![CDATA[SavedSearch savedSearch = await service.SavedSearches.CreateAsync(
     name: "$savedSearchName$",
     search: "$searchQuery$",
     attributes: new SavedSearchAttributes

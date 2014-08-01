@@ -63,7 +63,7 @@ namespace $safeprojectname$
                     LatestTime = "now"
             };
 
-            using (SearchResultStream resultStream = await service.SearchOneShotAsync(query, 100, args))
+            using (SearchResultStream resultStream = await service.SearchOneShotAsync(query, args:args))
             {
                 foreach (SearchResult result in resultStream)
                 {
