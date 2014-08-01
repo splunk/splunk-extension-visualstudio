@@ -51,7 +51,7 @@ namespace $safeprojectname$
         static async Task Run(Service service)
         {
             //// Login
-            await service.LoginAsync("admin", "changeme");
+            await service.LogOnAsync("admin", "changeme");
 
             var query = "search index=_internal | head 5";
             var args = new JobArgs {
@@ -63,7 +63,7 @@ namespace $safeprojectname$
                     LatestTime = "now"
             };
 
-            using (SearchResultStream resultStream = await service.SearchOneshotAsync(query, args))
+            using (SearchResultStream resultStream = await service.SearchOneShotAsync(query, 100, args))
             {
                 foreach (SearchResult result in resultStream)
                 {
