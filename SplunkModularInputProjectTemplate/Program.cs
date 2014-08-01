@@ -68,8 +68,8 @@ namespace $safeprojectname$
         /// <returns><tt>true</tt> if the arguments are valid and <tt>false</tt> otherwise.</returns>
         public override bool Validate(Validation validation, out string errorMessage)
         {$if$ ($generateExampleImplementation$ == true)
-            double min = validation.Parameters["min"].ToDouble();
-            double max = validation.Parameters["max"].ToDouble();
+            double min = ((SingleValueParameter)(validation.Parameters["min"])).ToDouble();
+            double max = ((SingleValueParameter)(validation.Parameters["man"])).ToDouble();
 
             if (min >= max) {
                 errorMessage = "min must be less than max.";
@@ -97,8 +97,8 @@ namespace $safeprojectname$
         /// <param name="eventWriter">an object that handles writing events to Splunk.</param>
         public override async Task StreamEventsAsync(InputDefinition inputDefinition, EventWriter eventWriter)
         {$if$ ($generateExampleImplementation$ == true)
-            double min = inputDefinition.Parameters["min"].ToDouble();
-            double max = inputDefinition.Parameters["max"].ToDouble();
+            double min = ((SingleValueParameter)(inputDefinition.Parameters["min"])).ToDouble();
+            double max = ((SingleValueParameter)(inputDefinition.Parameters["max"])).ToDouble();
 
             Random rnd = new Random();
 
