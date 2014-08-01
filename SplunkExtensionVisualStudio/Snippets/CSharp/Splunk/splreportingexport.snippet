@@ -24,7 +24,8 @@
           </Function>
         </Literal>
       </Declarations>
-      <Code Language="csharp"><![CDATA[SearchPreviewStream previewStream = await service.ExportSearchPreviewsAsync(
+      <Code Language="csharp">
+  <![CDATA[SearchPreviewStream previewStream = await service.ExportSearchPreviewsAsync(
     "$searchQuery$",
     new SearchExportArgs {
         // Arguments for export are documented at:
@@ -32,10 +33,12 @@
         //    http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTsearch#GET_search.2Fjobs.2Fexport
     }
 );
+// wait some time for the result coming
+await Task.Delay(5000);
 
-previewStream.Subscribe(
+previewStream.Subscribe(new Observer<SearchPreview>(
     onNext: (searchPreview) => {
-        foreach (SearchResult result in searchPreview)
+        foreach (SearchResult result in searchPreview.Results)
         {
             $end$
         }
@@ -45,8 +48,7 @@ previewStream.Subscribe(
     },
     onCompleted: () => {
         // handle completion
-    }
-);]]></Code>
+    }));]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

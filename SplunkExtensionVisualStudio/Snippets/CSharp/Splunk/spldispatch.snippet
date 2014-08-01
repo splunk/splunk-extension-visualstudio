@@ -24,7 +24,8 @@
           </Function>
         </Literal>
       </Declarations>
-      <Code Language="csharp"><![CDATA[SavedSearch savedSearch = await service.GetSavedSearchAsync("$savedSearchName$");
+      <Code Language="csharp">
+        <![CDATA[SavedSearch savedSearch = await service.SavedSearches.GetAsync("$savedSearchName$");
  
 Job savedSearchJob = null;
 JobCollection savedSearchJobHistory = await savedSearch.GetHistoryAsync();
@@ -32,7 +33,7 @@ JobCollection savedSearchJobHistory = await savedSearch.GetHistoryAsync();
 if (savedSearchJobHistory.Count > 0)
 {
     // Jobs have already been run for this saved search. Fetch the last one.
-    savedSearchJob = savedSearchJobHistory.Last();
+    savedSearchJob = savedSearchJobHistory[savedSearchJobHistory.Count - 1];
 }
 else
 {

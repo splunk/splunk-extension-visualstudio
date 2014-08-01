@@ -25,7 +25,7 @@
         </Literal>
       </Declarations>
       <Code Language="csharp"><![CDATA[using (CancellationTokenSource tokenSource = new CancellationTokenSource())
-using (Job job = await service.CreateJobAsync(
+using (Job job = await service.Jobs.CreateAsync(
     "$searchQuery$",
     new JobArgs {
         EarliestTime = "rt-1h",
