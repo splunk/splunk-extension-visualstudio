@@ -2,6 +2,9 @@
 using Microsoft.VisualStudio.TemplateWizard;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Data;
 
 namespace CSharpProjectWizard
 {
@@ -22,6 +25,7 @@ namespace CSharpProjectWizard
             if (dialogCompleted == true)
             {
                 replacementsDictionary.Add("$generateExampleImplementation$", model.GenerateExample ? "true" : "false");
+
                 if (model.UseLogging == Logging.None) {
                     replacementsDictionary.Add("$logging$", "none");
                 }
@@ -32,6 +36,17 @@ namespace CSharpProjectWizard
                 else if (model.UseLogging == Logging.Slab)
                 {
                     replacementsDictionary.Add("$logging$", "slab");
+                }
+
+                if (model.Protocol == Protocol.UDP)
+                {
+                    replacementsDictionary.Add("$protocol$", "UDP");
+                    replacementsDictionary.Add("$protocolCamelCase$", "Udp");
+                }
+                else if (model.Protocol == Protocol.TCP)
+                {
+                    replacementsDictionary.Add("$protocol$", "TCP");
+                    replacementsDictionary.Add("$protocolCamelCase$", "Tcp");
                 }
             }
             else

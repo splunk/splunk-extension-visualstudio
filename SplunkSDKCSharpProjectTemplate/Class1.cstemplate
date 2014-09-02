@@ -23,7 +23,7 @@ namespace $safeprojectname$
 			traceSource.TraceEvent(TraceEventType.Information, 1, "Logging started.");
 			$endif$ $if$ ($logging$ == slab)
 			var listener = new ObservableEventListener();
-            listener.Subscribe(new UdpEventSink(IPAddress.Loopback, 10000));
+            listener.Subscribe(new $protocolCamelCase$EventSink(IPAddress.Loopback, 10000));
 			
             var eventSource = new SimpleEventSource();
             listener.EnableEvents(eventSource, EventLevel.LogAlways, Keywords.All);
@@ -73,10 +73,10 @@ namespace $safeprojectname$
         }$endif$ $if$ ($logging$ == tracelistener)
 
         /// <summary>
-        /// Configures a TraceSource to log to a UDP input.
+        /// Configures a TraceSource to log to a $protocol$ input.
         /// </summary>
-        /// <param name="host">The host to send UDP datagrams to.</param>
-        /// <param name="port">The port to send UDP datagrams to.</param>
+        /// <param name="host">The host to send data to.</param>
+        /// <param name="port">The port to send data to.</param>
         /// <returns>A TraceSource instance.</returns>
 		static TraceSource ConfigureLogging(IPAddress host, int port)
         {
@@ -84,7 +84,7 @@ namespace $safeprojectname$
 
             traceSource.Listeners.Remove("Default");
             traceSource.Switch.Level = SourceLevels.All;
-            traceSource.Listeners.Add(new UdpTraceListener(host, port));
+            traceSource.Listeners.Add(new $protocolCamelCase$TraceListener(host, port));
 
             return traceSource;
         }$endif$ $if$ ($logging$ == slab)

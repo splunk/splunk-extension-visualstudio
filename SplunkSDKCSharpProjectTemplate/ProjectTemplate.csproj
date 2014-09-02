@@ -44,10 +44,12 @@
 		<Reference Include="System.Data"/>
 		<Reference Include="System.Xml"/>
     $if$ ($logging$ == tracelistener)
-    <Reference Include="Splunk.Logging" />
+    <Reference Include="Splunk.Logging.Common" />
+    <Reference Include="Splunk.Logging.TraceListener" />
     $endif$
     $if$ ($logging$ == slab)
-    <Reference Include="Splunk.Logging" />
+    <Reference Include="Splunk.Logging.Common" />
+    <Reference Include="Splunk.Logging.SLAB" />
     $endif$
 	</ItemGroup>
 	<ItemGroup>

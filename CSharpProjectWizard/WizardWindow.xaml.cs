@@ -16,15 +16,25 @@ using System.Windows.Shapes;
 namespace CSharpProjectWizard
 {
     public enum Logging { None, TraceListener, Slab };
+    public enum Protocol { UDP, TCP };
 
     public class ProjectMetadata : DependencyObject
     {
         public ProjectMetadata()
         {
             UseLogging = Logging.None;
+            Protocol = Protocol.UDP;
             GenerateExample = true;
         }
-        
+
+        public static readonly DependencyProperty ProtocolProperty =
+            DependencyProperty.Register("Protocol", typeof(Protocol), typeof(WizardWindow), new UIPropertyMetadata());
+        public Protocol Protocol
+        {
+            get { return (Protocol)GetValue(ProtocolProperty); }
+            set { SetValue(ProtocolProperty, value); }
+        }
+
         public static readonly DependencyProperty UseLoggingProperty =
             DependencyProperty.Register("UseLogging", typeof(Logging), typeof(WizardWindow), new UIPropertyMetadata());
         public Logging UseLogging

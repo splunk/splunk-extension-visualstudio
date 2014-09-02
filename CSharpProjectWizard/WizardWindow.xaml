@@ -19,21 +19,60 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0">Configure logging to Splunk via UDP:</Label>
+        <Label Grid.Row="0" Grid.Column="0">Configure logging to Splunk via:</Label>
 
-        <ComboBox Grid.Row="1" SelectedIndex="0" SelectedValue="{Binding Path=UseLogging, Mode=TwoWay}" SelectedValuePath="Tag">
-            <ComboBoxItem Content="None" Tag="{x:Static local:Logging.None}" />
-            <ComboBoxItem Content="Trace listener" Tag="{x:Static local:Logging.TraceListener}" />
-            <ComboBoxItem Content="SLAB event sink" Tag="{x:Static local:Logging.Slab}" />
-        </ComboBox>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Row="0" Grid.Column="0" SelectedIndex="0" SelectedValue="{Binding Path=UseLogging, Mode=TwoWay}" SelectedValuePath="Tag"
+                      Name="LoggingComboBox">
+                <ComboBoxItem Content="None" Tag="{x:Static local:Logging.None}" />
+                <ComboBoxItem Content="Trace listener" Tag="{x:Static local:Logging.TraceListener}" />
+                <ComboBoxItem Content="SLAB event sink" Tag="{x:Static local:Logging.Slab}" />
+            </ComboBox>
 
-        <CheckBox Grid.Row="2" Grid.Column="0" 
+            <Label Grid.Row="0" Grid.Column="1">
+                via
+                <Label.Style>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Visibility" Value="Visible" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=LoggingComboBox, Path=SelectedValue, Mode=TwoWay}" Value="{x:Static local:Logging.None}">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+
+            <ComboBox Grid.Row="0" Grid.Column="2" SelectedValue="{Binding Path=Protocol, Mode=TwoWay}" SelectedValuePath="Tag">
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Setter Property="IsEnabled" Value="True" />
+                        <Setter Property="Visibility" Value="Visible" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=LoggingComboBox, Path=SelectedValue, Mode=TwoWay}" Value="{x:Static local:Logging.None}">
+                                <Setter Property="IsEnabled" Value="False" />
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>                           
+                </ComboBox.Style>
+                <ComboBoxItem Content="UDP" Tag="{x:Static local:Protocol.UDP}" />
+                <ComboBoxItem Content="TCP" Tag="{x:Static local:Protocol.TCP}" />
+            </ComboBox>
+        </Grid>
+
+        <CheckBox Grid.Row="2" 
                   Content="Generate an example implementation"
                   HorizontalAlignment="Left" Margin="10,5,10,5" Name="GenerateExampleImplementationCheckbox" 
                   IsChecked="{Binding GenerateExample}"/>
 
 
-        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button HorizontalAlignment="Right" Width="75" Margin="5,0" Click="OkButton_Click" Content="OK" />
             <Button Content="Cancel" HorizontalAlignment="Right" Width="75" IsCancel="True" />
         </StackPanel>
