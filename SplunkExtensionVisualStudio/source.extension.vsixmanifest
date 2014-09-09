@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="Splunk.Extension.VisualStudio" Version="0.8" Language="en-US" Publisher="Splunk, Inc." />
-    <DisplayName>Splunk extension for Visual Studio 1.0 Beta</DisplayName>
+    <Identity Id="Splunk.Extension.VisualStudio" Version="1," Language="en-US" Publisher="Splunk, Inc." />
+    <DisplayName>Splunk extension for Visual Studio 1.0</DisplayName>
     <Description xml:space="preserve">Extension which makes it easy to use Splunk's C# SDK, log events to Splunk, and to extend Splunk with Modular Inputs.</Description>
     <License>LICENSE.txt</License>
     <Icon>Splunk Plugin.png</Icon>
