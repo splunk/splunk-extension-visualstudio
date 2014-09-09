@@ -27,8 +27,8 @@
   </WizardExtension>
   <WizardData>
     <packages repository="extension" repositoryId="Splunk.Extension.VisualStudio">
-      <package id="Splunk.Client" version="2.0.0-beta"/>
-      <package id="Splunk.ModularInputs" version="2.0.0-beta" />
+      <package id="Splunk.Client" version="2.0.0"/>
+      <package id="Splunk.ModularInputs" version="2.0.0" />
     </packages>
   </WizardData>
   <WizardExtension>
