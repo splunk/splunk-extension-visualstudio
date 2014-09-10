@@ -3,7 +3,7 @@
   <TemplateData>
     <Name>Splunk SDK for C# Project</Name>
     <Description>C# project with NuGet packages for connecting to Splunk and example code.</Description>
-    <!-- TODO: Add icon <Icon></Icon>-->
+    <Icon>Splunk Template.png</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
@@ -11,11 +11,12 @@
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>SplunkSDKCSharpProject</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="Class1.cs">Class1.cstemplate</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Program.cs</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>
@@ -23,8 +24,17 @@
     <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
   </WizardExtension>
   <WizardData>
-    <packages repository="extension" repositoryId="SplunkExtensionVisualStudio..bc08ac1c-659d-4e46-a5e4-1ff72303419b">
-      <package id="SplunkSDK" version="1.0.2"/>
+    <packages repository="extension" repositoryId="Splunk.Extension.VisualStudio">
+      <package id="Splunk.Client" version="2.0.0"/>
+      <package id="Splunk.Logging.Common" version="1.0.0" />
+      <package id="Splunk.Logging.SLAB" version="1.0.0" />
+      <package id="Splunk.Logging.TraceListener" version="1.0.0" />
+      <package id="EnterpriseLibrary.SemanticLogging" version="2.0.1406.1" />
     </packages>
   </WizardData>
+  <WizardExtension>
+    <Assembly>CSharpProjectWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=323019e6ca697031</Assembly>
+    <FullClassName>CSharpProjectWizard.Wizard</FullClassName>
+  </WizardExtension>
+
 </VSTemplate>
