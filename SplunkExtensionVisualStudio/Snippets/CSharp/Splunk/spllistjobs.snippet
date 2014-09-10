@@ -12,11 +12,12 @@
       </Description>
       <HelpUrl>
       </HelpUrl>
-      <Shortcut>
-      </Shortcut>
+      <Shortcut>spllistjobs</Shortcut>
     </Header>
     <Snippet>
-      <Code Language="csharp"><![CDATA[foreach (Job job in await service.GetJobsAsync())
+      <Code Language="csharp">
+        <![CDATA[await service.Jobs.GetAllAsync();
+foreach (Job job in service.Jobs)
 {
     $end$
 }]]></Code>

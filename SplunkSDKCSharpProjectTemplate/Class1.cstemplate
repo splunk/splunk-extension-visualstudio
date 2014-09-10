@@ -1,0 +1,111 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Text;
+using System.Net;
+using Splunk.Client; $if$ ($logging$ == tracelistener)
+using System.Diagnostics;
+using Splunk.Logging; $endif$ $if$ ($logging$ == slab)
+using Microsoft.Practices.EnterpriseLibrary.SemanticLogging;
+using Splunk.Logging;
+using System.Diagnostics.Tracing;$endif$
+
+// This is a template for new users of the Splunk SDK for C#.
+// The code below connects to a Splunk instance, runs a search,
+// and prints out the results in a crude form.
+namespace $safeprojectname$
+{
+	public class Class1
+	{
+        static void Main(string[] args)
+        {$if$ ($logging$ == tracelistener)
+            TraceSource traceSource = ConfigureLogging(IPAddress.Loopback, 10000);
+			traceSource.TraceEvent(TraceEventType.Information, 1, "Logging started.");
+			$endif$ $if$ ($logging$ == slab)
+			var listener = new ObservableEventListener();
+            listener.Subscribe(new $protocolCamelCase$EventSink(IPAddress.Loopback, 10000));
+			
+            var eventSource = new SimpleEventSource();
+            listener.EnableEvents(eventSource, EventLevel.LogAlways, Keywords.All);
+
+            eventSource.Message("Logging started.");
+			$endif$ $if$ ($generateExampleImplementation$ == true)
+			// This is required to work with the unsigned certificates that ship with Splunk
+			// by default. You should remove it when talking to a production Splunk server, which
+			// should have proper certificates installed.
+			ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
+
+            using (var service = new Service(Scheme.Https, "localhost", 8089))
+            {
+                Run(service).Wait();
+            }$endif$
+		}$if$ ($generateExampleImplementation$ == true)
+
+        /// <summary>
+        /// Runs the work to be done on a service, starting with login.
+        /// </summary>
+        /// <param name="service">A connection to a Splunk server.</param>
+        static async Task Run(Service service)
+        {
+            //// Login
+            await service.LogOnAsync("admin", "changeme");
+
+            var query = "search index=_internal | head 5";
+            var args = new JobArgs {
+                	// For a full list of options, see:
+	            	//
+		            //     http://docs.splunk.com/Documentation/Splunk/latest/RESTAPI/RESTsearch#POST_search.2Fjobs
+
+		            EarliestTime = "-1w",
+                    LatestTime = "now"
+            };
+
+            using (SearchResultStream resultStream = await service.SearchOneShotAsync(query, args:args))
+            {
+                foreach (SearchResult result in resultStream)
+                {
+                    Console.WriteLine(result);
+                }
+            }
+        }$endif$ $if$ ($logging$ == tracelistener)
+
+        /// <summary>
+        /// Configures a TraceSource to log to a $protocol$ input.
+        /// </summary>
+        /// <param name="host">The host to send data to.</param>
+        /// <param name="port">The port to send data to.</param>
+        /// <returns>A TraceSource instance.</returns>
+		static TraceSource ConfigureLogging(IPAddress host, int port)
+        {
+            var traceSource = new TraceSource("TestLogger");
+
+            traceSource.Listeners.Remove("Default");
+            traceSource.Switch.Level = SourceLevels.All;
+            traceSource.Listeners.Add(new $protocolCamelCase$TraceListener(host, port));
+
+            return traceSource;
+        }$endif$ $if$ ($logging$ == slab)
+
+		// This example is purely illustrative of how to use SLAB to send events to Splunk.
+		// It is not however a recommended pattern for how to use SLAB itself. For more 
+		// information on the proper usage of SLAB and how to properly design Event Sources, 
+		// see the SLAB documentation:
+		//
+		//     http://msdn.microsoft.com/en-us/library/dn440729(v=pandp.60).aspx
+		[EventSource(Name="TestEventSource")]
+        public class SimpleEventSource : EventSource
+        {
+            public class Keywords {}
+            public class Tasks {}
+
+			[Event(1, Message = "{0}", Level = EventLevel.Informational)]
+            internal void Message(string message)
+            {
+                this.WriteEvent(1, message);
+            }
+        }$endif$
+	}
+}

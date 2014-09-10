@@ -12,8 +12,7 @@
       </Description>
       <HelpUrl>
       </HelpUrl>
-      <Shortcut>
-      </Shortcut>
+      <Shortcut>splresults</Shortcut>
     </Header>
     <Snippet>
       <Declarations>
@@ -27,12 +26,12 @@
         </Object>
       </Declarations>
       <Code Language="csharp"><![CDATA[long totalResults = $job$.ResultCount;
-const long eventsPerPage = 5000;
+const long eventsPerPage = 50;
 
 for (long offset = 0; offset < totalResults; offset++)
 {
     using (SearchResultStream searchResults = await $job$.GetSearchResultsAsync(
-        new SearchResultsArgs { Offset = (int)offset,  Count = (int)eventsPerPage }))
+        new SearchResultArgs { Offset = (int)offset,  Count = (int)eventsPerPage }))
     {
         foreach (SearchResult result in searchResults)
         {
