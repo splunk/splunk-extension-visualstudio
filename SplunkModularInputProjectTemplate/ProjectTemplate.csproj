@@ -84,7 +84,7 @@
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
   <PropertyGroup>
-    <AppSkeletonPath>$(OutputPath)\app\</AppSkeletonPath>
+    <AppSkeletonPath>$(OutputPath)app\</AppSkeletonPath>
   </PropertyGroup>
 	<ItemGroup>
 		<Reference Include="System"/>
@@ -112,15 +112,14 @@
   <Target Name="AfterBuild">
     <!-- At this point, we have a directory AppSkeleton in the project directory that
          contains app.conf and inputs.conf.spec. -->
-
-    <MakeDir Directories="$(AppSkeletonPath);$(AppSkeletonPath)\$safeprojectname$" />
-    <MakeDir Directories="$(AppSkeletonPath)\$safeprojectname$\bin;$(AppSkeletonPath)\$safeprojectname$\default;$(AppSkeletonPath)\$safeprojectname$\README"/>
-    <Copy SourceFiles="$(MSBuildProjectDirectory)\$safeprojectname$\default\app.conf" DestinationFolder="$(AppSkeletonPath)\$safeprojectname$\default"/>
-    <Copy SourceFiles="$(MSBuildProjectDirectory)\$safeprojectname$\README\inputs.conf.spec" DestinationFolder="$(AppSkeletonPath)\$safeprojectname$\README"/>
-    <Copy SourceFiles="$(OutputPath)\$safeprojectname$.exe" DestinationFolder="$(AppSkeletonPath)\$safeprojectname$\bin"/>
     <ItemGroup>
       <DLLsToInclude Include="$(OutputPath)\*.dll" />
+      <AppFilesToInclude Include="$(MSBuildProjectDirectory)\$safeprojectname$\**\*.*" />
     </ItemGroup>
+    <MakeDir Directories="$(AppSkeletonPath);$(AppSkeletonPath)\$safeprojectname$" />
+    <Copy SourceFiles="@(AppFilesToInclude)" DestinationFolder="$(AppSkeletonPath)\$safeprojectname$\%(RecursiveDir)" />
+    <Copy SourceFiles="$(OutputPath)\$safeprojectname$.exe" DestinationFolder="$(AppSkeletonPath)\$safeprojectname$\bin" />
+    <Copy SourceFiles="@(DLLsToInclude)" DestinationFolder="$(AppSkeletonPath)\$safeprojectname$\bin" />
     <Copy SourceFiles="@(DLLsToInclude)" DestinationFolder="$(AppSkeletonPath)\$safeprojectname$\bin" />
     <ZipFolder
       FolderToCompress="$(AppSkeletonPath)"
@@ -128,6 +127,15 @@
       OverwriteExistingFile="true" />
     <Message Importance="high" Text="Finished building .spl file in $(OutputPath)$safeprojectname$.spl"/>
   </Target>
-  
+  <PropertyGroup>
+    <PostBuildEvent>REM Uncomment the lines below to deploy to your local Splunk instance on each build.
+REM You will need to either have the %25SPLUNK_HOME%25 environment variable set, or replace $(SPLUNK_HOME) with the path to your Splunk instance.
+REM You will also need to be running Visual Studio as an Administrator so that it has permissions to copy the files to Splunk
+goto Deploy
 
+:Deploy
+xcopy "$(ProjectDir)$(ProjectName)\*.*" "$(SPLUNK_HOME)\etc\apps\$(ProjectName)" /F /R /Y /I /E
+xcopy "$(TargetDir)\*.*" "$(SPLUNK_HOME)\etc\apps\$(ProjectName)\bin" /F /R /Y /I
+echo Deployed Application to $(SPLUNK_HOME)\etc\apps\$(ProjectName)</PostBuildEvent> 
+  </PropertyGroup>
  </Project>
