@@ -128,10 +128,10 @@
     <Message Importance="high" Text="Finished building .spl file in $(OutputPath)$safeprojectname$.spl"/>
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>REM Uncomment the lines below to deploy to your local Splunk instance on each build.
+    <PostBuildEvent>REM Uncomment the 'goto Deploy' line below to deploy to your local Splunk instance on each build.
 REM You will need to either have the %25SPLUNK_HOME%25 environment variable set, or replace $(SPLUNK_HOME) with the path to your Splunk instance.
 REM You will also need to be running Visual Studio as an Administrator so that it has permissions to copy the files to Splunk
-goto Deploy
+REM goto Deploy
 
 :Deploy
 xcopy "$(ProjectDir)$(ProjectName)\*.*" "$(SPLUNK_HOME)\etc\apps\$(ProjectName)" /F /R /Y /I /E
