@@ -14,7 +14,18 @@ namespace $safeprojectname$
         /// <returns>An exit code.</returns>
         public static int Main(string[] args)
         {
+            int timeout_sec = 30;
+
+            // To enable attaching to the input running in Splunk to debug, set the DEBUG_VALIDATE or DEBUG_STREAMEVENTS
+            // compliation constants in the project settings
+
+            #if DEBUG_VALIDATE
+            return Run<Program>(args, DebuggerAttachPoints.ValidateArguments, timeout_sec);
+            #elif DEBUG_STREAMEVENTS
+            return Run<Program>(args, DebuggerAttachPoints.StreamEvents, timeout_sec);
+            #else
             return Run<Program>(args);
+            #endif
         }
 
         /// <summary>
@@ -69,7 +80,7 @@ namespace $safeprojectname$
         public override bool Validate(Validation validation, out string errorMessage)
         {$if$ ($generateExampleImplementation$ == true)
             double min = ((SingleValueParameter)(validation.Parameters["min"])).ToDouble();
-            double max = ((SingleValueParameter)(validation.Parameters["man"])).ToDouble();
+            double max = ((SingleValueParameter)(validation.Parameters["max"])).ToDouble();
 
             if (min >= max) {
                 errorMessage = "min must be less than max.";
