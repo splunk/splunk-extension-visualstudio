@@ -1,5 +1,5 @@
 # Splunk Extension for Visual Studio
-#### Version 1.x
+#### Version 1.1
 
 The Splunk extension for Visual Studio adds project templates to Visual Studio
 to help in writing programs that access Splunk via the Splunk Software Development kit (SDK) for C# and writing modular inputs for Splunk in C#. It also provides tooling for configuring logging of events over UDP or TCP to Splunk Enterprise.
