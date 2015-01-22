@@ -14,7 +14,7 @@ namespace $safeprojectname$
         /// <returns>An exit code.</returns>
         public static int Main(string[] args)
         {
-            int timeout_sec = 30;
+            uint timeout_sec = 30;
 
             // To enable attaching to the input running in Splunk to debug, set the DEBUG_VALIDATE or DEBUG_STREAMEVENTS
             // compliation constants in the project settings
