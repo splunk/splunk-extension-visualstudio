@@ -1,5 +1,9 @@
 # Splunk extension for Visual Studio
 
+## Version 1.1.1
+
+* Add fix to codegen to use `uint` for the timeout variable
+
 ## Version 1.1.0
 
 * Add support to Modular Input template for deploying the input to a local Splunk instance on build via a Post Build script.
