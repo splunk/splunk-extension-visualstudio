@@ -1,83 +1,76 @@
 # Splunk Extension for Visual Studio
-## Version 1.x
+#### Version 1.2.0
 
-The Splunk Extension for Visual Studio adds project templates to Visual Studio
-to help in writing programs that access Splunk via the Splunk SDK for C# and
-writing modular inputs for Splunk in C#.
+The Splunk extension for Visual Studio adds project templates to Visual Studio
+to help in writing programs that access Splunk via the Splunk Software Development kit (SDK) for C# and writing modular inputs for Splunk in C#. It also provides tooling for configuring logging of events over UDP or TCP to Splunk Enterprise.
+
+The extension adds to the Visual Studio software development platform to simplify creating projects using the Splunk SDK for C#. It provides:
+
+* A new "Splunk SDK for C#" project template.
+* A new "Splunk Modular Input" project template.
+* A set of code snippets for common tasks using the Splunk SDK for C#.
+* Optional support for logging events over UDP or TCP with .NET Trace Listeners or the Semantic Logging Application Block (SLAB)
 
 Splunk is a search engine and analytic environment that uses a distributed
 map-reduce architecture to efficiently index, search, and process large 
 time-varying data sets.
 
-The Splunk product is popular with system administrators for aggregation and
-monitoring of IT machine data, security, compliance and a wide variety of 
-other scenarios that share a requirement to efficiently index, search, analyze,
-and generate real-time notifications from large volumes of time series data.
-
 The Splunk developer platform enables developers to take advantage of the 
 same technology used by the Splunk product to build exciting new applications
 that are enabled by Splunk's unique capabilities.
 
-## Supported platforms
+## Get started
 
-The Splunk Extension for Visual Studio requires Visual Studio 2012 or 2013.
+The information in this Readme provides steps to get going quickly, but for more in-depth information be sure to visit the [Splunk extension for Visual Studio documentation](http://dev.splunk.com/view/splunk-extension-vs/SP-CAAAEXT) on [Splunk Developer Portal](http://dev.splunk.com).
 
-## Getting started with the Splunk extension for Visual Studio
+### Requirements
 
-You can install the Splunk Extension for Visual Studio from the Visual
-Studio Gallery. You will also need an installation of
-Splunk Enterprise to test the code you write using the extension.
+Here's what you need to get going with the Splunk extension for Visual Studio:
 
-### Installing from the Visual Studio Gallery
+* **Microsoft Visual Studio:** The Splunk extension for Visual Studio requires Visual Studio 2013.
+* **Splunk Enterprise**: If you haven't already installed Splunk Enterprise, download it at [http://www.splunk.com/download](http://www.splunk.com/download). For more information about installing and running  Splunk Enterprise and system requirements, see the [Splunk Installation Manual](http://docs.splunk.com/Documentation/Splunk/latest/Installation).
+* **Splunk extension for Visual Studio**: You install the Splunk extension for Visual Studio directly within Visual Studio; there is no separate download. Installing the Splunk extension for Visual Studio also installs the Splunk SDK for C#.
 
-1. In Visual Studio, on the Tools menu, click Extensions and Updates.
+### Install
+
+To install the Splunk extension for Visual Studio:
+
+1. In Visual Studio, on the **Tools** menu, click **Extensions and Updates**.
 
 2. In the Extensions and Updates dialog box, in the left pane, expand 
-   Online and click Visual Studio Gallery.
+   **Online** and click **Visual Studio Gallery**.
 
-4. In the Search Visual Studio Gallery box in the right pane, type splunk. 
+4. In the **Search Visual Studio Gallery** box in the right pane, type **splunk**. 
    "Splunk extension for Visual Studio" appears in the middle pane.
 
-5. Click the Download button next to the extension's name.
+5. Click the **Download** button next to the extension's name.
 
-6. In the Download and Install dialog box, click Install.
+6. In the Download and Install dialog box, click **Install**.
 
-7. Click the Restart Now button that appears at the bottom of the Extensions and Updates dialog box to restart Visual Studio.
+7. Click the **Restart Now** button that appears at the bottom of the Extensions and Updates dialog box to restart Visual Studio.
 
-### Getting Splunk Enterprise
+### Get the source
 
-If you haven't already installed Splunk Enterprise, download it at 
-<http://www.splunk.com/download>. For more information about installing and 
-running Splunk Enterprise and system requirements, see the
-[Splunk Installation Manual](http://docs.splunk.com/Documentation/Splunk/latest/Installation). 
+If you are interested in contributing to the Splunk extension for Visual Studio, you can [get it from GitHub](https://github.com/splunk/splunk-extension-visualstudio) and clone the resources to your computer.
 
-#### Getting the source
+Alternately, you can [download a ZIP file containing the Splunk extension for Visual Studio](https://github.com/splunk/splunk-extension-visualstudio/archive/master.zip). Extract the ZIP file's contents and then open the **SplunkExtensionVisualStudio.sln**. 
 
-[Get the Splunk extension for Visual Studio](https://github.com/splunk/splunk-extension-visualstudio/archive/master.zip). Download the ZIP file and extract its contents.
-
-If you are interested in contributing to the Splunk extension for Visual Studio, you can 
-[get it from GitHub](https://github.com/splunk/splunk-extension-visualstudio) and clone the 
-resources to your computer.
-
-#### Building the extension
+#### Build the extension
 
 To build from source after extracting or cloning the extension, do the following
 
-1. Download and install the Visual Studio SDK.
-     For Visual Studio 2012: http://www.microsoft.com/en-us/download/details.aspx?id=30668
-	 For Visual Studio 2013: http://www.microsoft.com/en-us/download/details.aspx?id=40758
-2. At the root level of the **splunk-extension-visualstudio** directory, open
+1. Download and install the [Visual Studio 2013 SDK](http://www.microsoft.com/en-us/download/details.aspx?id=40758).
+2. From the root level of the **splunk-extension-visualstudio** directory, open
    the **SplunkExtensionVisualStudio.sln** file in Visual Studio.
-3. On the **BUILD** menu, click **Build Solution**.
+3. On the **Build** menu, click **Build Solution**.
 
 This will build the extension.
 
 #### Solution Layout
 
-The solution is organized into five projects:
+The Splunk extension for Visual Studio solution is organized into five projects:
 
-* **SplunkExtensionVisualStudio** represents the VSIX file to build, and contains all
-  the NuGet packages to be included in that VSIX.
+* **SplunkExtensionVisualStudio** represents the VSIX file to build, and contains all the NuGet packages to be included in that VSIX.
 * **SplunkCSharpProjectTemplate** defines the project template for Splunk SDK for C# PCL projects.
 * **CSharpProjectWizard** defines the project creation wizard for the Splunk SDK for C# template.
 * **SplunkModularInputProjectTemplate** defines the project template for creating
@@ -93,11 +86,14 @@ of changes for each version of the extension. You can also find it online at
 ### Branches
 
 The **master** branch always represents a stable and released version of the extension.
+
 All development is merged to the **develop** branch between releases.
 
 ## Documentation and resources
 
 If you need to know more:
+
+* The main Splunk extension for Visual Studio documentation is at [http://dev.splunk.com/view/splunk-extension-vs/SP-CAAAEXT](http://dev.splunk.com/view/splunk-extension-vs/SP-CAAAEXT).
 
 * For all things developer with Splunk, your main resource is the [Splunk
   Developer Portal](http://dev.splunk.com).

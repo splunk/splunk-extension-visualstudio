@@ -19,7 +19,6 @@
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SplunkSDKCSharpProjectTemplate" d:TargetPath="|SplunkSDKCSharpProjectTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="SplunkModularInputProjectTemplate" d:TargetPath="|SplunkModularInputProjectTemplate;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
     <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="ModularInputWizard" Path="|ModularInputWizard|" AssemblyName="|ModularInputWizard;AssemblyName|" />
-    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="snippet_reference.pkgdef" />
     <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="CSharpProjectWizard" Path="|CSharpProjectWizard|" AssemblyName="|CSharpProjectWizard;AssemblyName|" />
   </Assets>
 </PackageManifest>
