@@ -129,15 +129,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\splunk.logging.common.1.5.0.nupkg">
+    <Content Include="Packages\Splunk.Logging.Common.1.5.0.nupkg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\splunk.logging.slab.1.5.0.nupkg">
+    <Content Include="Packages\Splunk.Logging.SLAB.1.5.0.nupkg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\splunk.logging.tracelistener.1.5.0.nupkg">
+    <Content Include="Packages\Splunk.Logging.TraceListener.1.5.0.nupkg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
