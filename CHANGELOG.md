@@ -4,6 +4,7 @@
 
 * Add fix to codegen to use `uint` for the timeout variable.
 * Updated Splunk SDK packages to Splunk.Client.2.1.2 and Splunk.ModularInputs.2.1.2
+* Updated Splunk library for .NET logging packages.
 
 ## Version 1.1.0
 
