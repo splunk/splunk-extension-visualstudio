@@ -2,4 +2,3 @@
 **/bin
 **/*.suo
 nuget.exe
-packages/
