@@ -59,7 +59,7 @@ Alternately, you can [download a ZIP file containing the Splunk extension for Vi
 
 To build from source after extracting or cloning the extension, do the following
 
-1. Download and install the [Visual Studio 2013 SDK](http://www.microsoft.com/en-us/download/details.aspx?id=40758), or [Visual Studio 2015 SDK with this guide](https://msdn.microsoft.com/en-us/library/bb166441.aspx).
+1. Download and install the [Visual Studio 2013 SDK](http://www.microsoft.com/en-us/download/details.aspx?id=40758), or [Visual Studio 2015 SDK](https://msdn.microsoft.com/en-us/library/bb166441.aspx).
 2. From the root level of the **splunk-extension-visualstudio** directory, open
    the **SplunkExtensionVisualStudio.sln** file in Visual Studio.
 3. On the **Build** menu, click **Build Solution**.
