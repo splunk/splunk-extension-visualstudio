@@ -1,5 +1,11 @@
 # Splunk extension for Visual Studio
 
+## Version 1.3.0
+
+* Add support for Visual Studio 2015 Enterprise and Community editions.
+* Updated Splunk SDK packages to Splunk.Client.2.2.2 and Splunk.ModularInputs.2.2.2
+* Updated Splunk library for .NET logging packages to v1.5.0, with support for HTTP Event Collector.
+
 ## Version 1.2.0
 
 * Add fix to codegen to use `uint` for the timeout variable.
