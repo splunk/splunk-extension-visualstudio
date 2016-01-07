@@ -25,7 +25,7 @@
   </WizardExtension>
   <WizardData>
     <packages repository="extension" repositoryId="Splunk.Extension.VisualStudio">
-      <package id="Splunk.Client" version="2.1.2"/>
+    <package id="Splunk.Client" version="2.2.2"/>
       <package id="Splunk.Logging.Common" version="1.5.0" />
       <package id="Splunk.Logging.SLAB" version="1.5.0" />
       <package id="Splunk.Logging.TraceListener" version="1.5.0" />
