@@ -1,5 +1,5 @@
 # Splunk Extension for Visual Studio
-#### Version 1.3.0
+#### Version 1.3.1
 
 The Splunk extension for Visual Studio adds project templates to Visual Studio
 to help in writing programs that access Splunk via the Splunk Software Development kit (SDK) for C# and writing modular inputs for Splunk in C#. It also provides tooling for configuring logging of events over UDP or TCP to Splunk Enterprise.
@@ -27,7 +27,7 @@ The information in this Readme provides steps to get going quickly, but for more
 
 Here's what you need to get going with the Splunk extension for Visual Studio:
 
-* **Microsoft Visual Studio:** The Splunk extension for Visual Studio requires Visual Studio 2013, Visual Studio 2015 Enterprise, or Visual Studio 2015 Community.
+* **Microsoft Visual Studio:** The Splunk extension for Visual Studio requires Visual Studio 2013, Visual Studio 2015 Enterprise, Visual Studio 2015 Pro, or Visual Studio 2015 Community.
 * **Splunk Enterprise**: If you haven't already installed Splunk Enterprise, download it at [http://www.splunk.com/download](http://www.splunk.com/download). For more information about installing and running  Splunk Enterprise and system requirements, see the [Splunk Installation Manual](http://docs.splunk.com/Documentation/Splunk/latest/Installation).
 * **Splunk extension for Visual Studio**: You install the Splunk extension for Visual Studio directly within Visual Studio; there is no separate download. Installing the Splunk extension for Visual Studio also installs the Splunk SDK for C#.
 
