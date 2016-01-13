@@ -1,5 +1,9 @@
 # Splunk extension for Visual Studio
 
+## Version 1.3.1
+
+* Add support for Visual Studio 2015 Pro edition.
+
 ## Version 1.3.0
 
 * Add support for Visual Studio 2015 Enterprise and Community editions.
