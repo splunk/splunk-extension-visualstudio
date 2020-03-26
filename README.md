@@ -1,4 +1,10 @@
 # Splunk Extension for Visual Studio
+
+**The Splunk Extension for Visual Studio has been deprecated and will be removed on June 1, 2020.**
+
+For more information, see the [Deprecation Notice](https://dev.splunk.com/enterprise/docs/csharp/plugin-vs/deprecation-notice) on the Splunk Developer Portal.
+
+
 #### Version 1.3.1
 
 The Splunk extension for Visual Studio adds project templates to Visual Studio
